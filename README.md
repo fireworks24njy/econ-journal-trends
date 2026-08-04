@@ -57,14 +57,16 @@
 ---
 
 ## 🗂️ 项目文件结构
+'''
 econ-journal-trends/
 ├── data_CN/ # 中文期刊原始数据、处理代码
 ├── data_top5.zip # 英文Top5期刊原始数据、处理代码
 ├── figure/ # 生成的所有可视化图表（热词云图、趋势堆叠图）
 ├── Phase One - July 22.pdf # 第一阶段结论说明
 ├── Phase Two - August 4th.pdf # 第二阶段报告
-├── (Galofré-Vilà, 2026).pdf  # 参考论文
+├── (Galofre-Vila, 2026).pdf # 参考论文
 └── README.md # 项目说明
+'''
 
 其他：数据分析过程中使用到的开源工具：pandas, scikit-learn, nltk, matplotlib
 
