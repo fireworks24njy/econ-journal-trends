@@ -57,7 +57,7 @@
 ---
 
 ## 🗂️ 项目文件结构
-'''
+```
 econ-journal-trends/
 ├── data_CN/ # 中文期刊原始数据、处理代码
 ├── data_top5.zip # 英文Top5期刊原始数据、处理代码
@@ -66,7 +66,7 @@ econ-journal-trends/
 ├── Phase Two - August 4th.pdf # 第二阶段报告
 ├── (Galofre-Vila, 2026).pdf # 参考论文
 └── README.md # 项目说明
-'''
+```
 
 其他：数据分析过程中使用到的开源工具：pandas, scikit-learn, nltk, matplotlib
 
