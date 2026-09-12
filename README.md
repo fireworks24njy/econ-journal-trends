@@ -55,7 +55,7 @@ econ-journal-trends/
 ├── (Galofré-Vilà, 2026).pdf       # 参考文献
 ├── Phase 1 - July 22.pdf          # 第一阶段报告
 ├── Phase 2 - August 04th.pdf      # 第二阶段报告
-├── Phase 3 - August 15th.pdf      # 最终报告
+├── Phase 3 - August 15th.pdf      # 第三阶段报告
 └── README.md                      # 项目说明
 ```
 
