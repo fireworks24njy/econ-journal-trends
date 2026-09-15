@@ -1,0 +1,344 @@
+﻿Rank,Term,Frequency,Type
+1,monetary policy,457,phrase
+2,labor market,308,phrase
+3,long run,293,phrase
+4,united state,286,phrase
+5,interest rate,252,phrase
+6,business cycle,197,phrase
+7,field experiment,185,phrase
+8,human capital,182,phrase
+9,general equilibrium,180,phrase
+10,long term,159,phrase
+11,adverse selection,157,phrase
+12,moral hazard,140,phrase
+13,market power,138,phrase
+14,exchange rate,132,phrase
+15,health insurance,127,phrase
+16,labour market,122,phrase
+17,mechanism design,113,phrase
+18,job search,110,phrase
+19,labor supply,108,phrase
+20,fiscal policy,100,phrase
+21,social network,100,phrase
+22,school choice,96,phrase
+23,labor share,93,phrase
+24,risk aversion,92,phrase
+25,decision making,90,phrase
+26,international trade,89,phrase
+27,minimum wage,89,phrase
+28,economic growth,88,phrase
+29,life cycle,85,phrase
+30,private information,85,phrase
+31,discrete choice,84,phrase
+32,income tax,83,phrase
+33,climate change,82,phrase
+34,productivity growth,80,phrase
+35,large scale,79,phrase
+36,asymmetric information,79,phrase
+37,percentage point,76,phrase
+38,welfare gain,76,phrase
+39,central bank,76,phrase
+40,asset price,75,phrase
+41,production network,75,phrase
+42,health care,74,phrase
+43,firm level,74,phrase
+44,low income,72,phrase
+45,repeated game,70,phrase
+46,aggregate productivity,70,phrase
+47,political economy,70,phrase
+48,heterogeneous agent,70,phrase
+49,expected utility,68,phrase
+50,structural change,68,phrase
+51,economic development,67,phrase
+52,rational inattention,66,phrase
+53,intergenerational mobility,66,phrase
+54,stock market,65,phrase
+55,optimal taxation,64,phrase
+56,risk sharing,64,phrase
+57,information aggregation,64,phrase
+58,optimal policy,62,phrase
+59,short run,61,phrase
+60,gender gap,61,phrase
+61,developing country,60,phrase
+62,confidence interval,60,phrase
+63,great recession,59,phrase
+64,lower bound,58,phrase
+65,tax rate,57,phrase
+66,prospect theory,57,phrase
+67,social learning,56,phrase
+68,income inequality,56,phrase
+69,public good,55,phrase
+70,price discrimination,55,phrase
+71,comparative advantage,55,phrase
+72,property right,54,phrase
+73,financial friction,54,phrase
+74,discontinuity design,53,phrase
+75,unemployment insurance,53,phrase
+76,social media,53,phrase
+77,wealth inequality,53,phrase
+78,technical change,53,phrase
+79,incomplete information,52,phrase
+80,rational expectation,52,phrase
+81,menu cost,52,phrase
+82,search friction,51,phrase
+83,financial crise,51,phrase
+84,import competition,51,phrase
+85,demand shock,50,phrase
+86,time series,50,phrase
+87,market structure,50,phrase
+88,revealed preference,50,phrase
+89,cross sectional,50,phrase
+90,partial identification,50,phrase
+91,sufficient statistic,50,phrase
+92,test score,49,phrase
+93,size distribution,48,phrase
+94,air pollution,48,phrase
+95,wage inequality,48,phrase
+96,new keynesian,47,phrase
+97,information acquisition,47,phrase
+98,world war,47,phrase
+99,comparative static,47,phrase
+100,less likely,46,phrase
+101,income taxation,46,phrase
+102,short term,46,phrase
+103,agricultural productivity,46,phrase
+104,consumer surplus,46,phrase
+105,economic activity,46,phrase
+106,controlled trial,45,phrase
+107,house price,45,phrase
+108,technological change,45,phrase
+109,time varying,45,phrase
+110,disability insurance,45,phrase
+111,labour supply,45,phrase
+112,public debt,44,phrase
+113,supply chain,44,phrase
+114,government debt,44,phrase
+115,precautionary saving,44,phrase
+116,information structure,43,phrase
+117,sticky price,43,phrase
+118,government spending,43,phrase
+119,first order,42,phrase
+120,moment inequality,42,phrase
+121,marginal cost,42,phrase
+122,cross country,42,phrase
+123,management practice,42,phrase
+124,impulse response,42,phrase
+125,technology adoption,41,phrase
+126,mental health,41,phrase
+127,job loss,41,phrase
+128,marriage market,41,phrase
+129,social interaction,41,phrase
+130,higher order,41,phrase
+131,value added,41,phrase
+132,bayesian persuasion,41,phrase
+133,network formation,40,phrase
+134,imperfect competition,40,phrase
+135,randomized controlled,40,phrase
+136,production function,40,phrase
+137,balance sheet,40,phrase
+138,term structure,40,phrase
+139,continuous time,40,phrase
+140,asset pricing,40,phrase
+141,develop new,40,phrase
+142,decision maker,39,phrase
+143,randomized controlled trial,39,phrase
+144,machine learning,39,phrase
+145,across country,39,phrase
+146,unobserved heterogeneity,39,phrase
+147,borrowing constraint,39,phrase
+148,affirmative action,39,phrase
+149,social norm,38,phrase
+150,social welfare,38,phrase
+151,randomized experiment,38,phrase
+152,social security,38,phrase
+153,standard error,37,phrase
+154,welfare loss,37,phrase
+155,outside option,37,phrase
+156,trade liberalization,37,phrase
+157,plan choice,37,phrase
+158,folk theorem,36,phrase
+159,standard deviation,36,phrase
+160,two sided,36,phrase
+161,choice set,36,phrase
+162,inflation expectation,36,phrase
+163,high school,35,phrase
+164,cheap talk,35,phrase
+165,aggregate shock,35,phrase
+166,natural experiment,34,phrase
+167,incomplete market,34,phrase
+168,present bias,34,phrase
+169,taxable income,34,phrase
+170,phillip curve,34,phrase
+171,self control,34,phrase
+172,measurement error,34,phrase
+173,capital accumulation,33,phrase
+174,structural estimation,33,phrase
+175,wage rigidity,33,phrase
+176,risk taking,33,phrase
+177,even though,32,phrase
+178,knowledge spillover,32,phrase
+179,federal reserve,32,phrase
+180,private sector,32,phrase
+181,principal agent,32,phrase
+182,average treatment,32,phrase
+183,civil conflict,31,phrase
+184,liquidity trap,31,phrase
+185,reduced form,31,phrase
+186,loss aversion,31,phrase
+187,random assignment,31,phrase
+188,propensity score,31,phrase
+189,sovereign debt,30,phrase
+190,procurement auction,30,phrase
+191,common value,30,phrase
+192,cash flow,30,phrase
+193,cognitive skill,30,phrase
+194,trade agreement,30,phrase
+195,nominal rigidity,29,phrase
+196,vertical integration,29,phrase
+197,maximum likelihood,29,phrase
+198,cash transfer,29,phrase
+199,financial crisis,29,phrase
+200,randomly assigned,29,phrase
+201,quasi experimental,29,phrase
+202,rare disaster,29,phrase
+203,early childhood,28,phrase
+204,foreign currency,28,phrase
+205,open economy,28,phrase
+206,self fulfilling,28,phrase
+207,one third,28,phrase
+208,high frequency,28,phrase
+209,stable matching,28,phrase
+210,marginal propensity,28,phrase
+211,bounded rationality,27,phrase
+212,educational attainment,27,phrase
+213,risk premia,27,phrase
+214,monopolistic competition,27,phrase
+215,relational contract,27,phrase
+216,zero lower bound,26,phrase
+217,durable good,26,phrase
+218,steady state,26,phrase
+219,shed light,25,phrase
+220,risk averse,25,phrase
+221,wide range,25,phrase
+222,bargaining power,25,phrase
+223,human capital investment,25,phrase
+224,medical care,25,phrase
+225,input output,24,phrase
+226,sufficient condition,24,phrase
+227,nash equilibrium,24,phrase
+228,fire sale,24,phrase
+229,winner curse,24,phrase
+230,medicare part,24,phrase
+231,structural transformation,24,phrase
+232,safe asset,24,phrase
+233,key feature,23,phrase
+234,ambiguity aversion,23,phrase
+235,sovereign default,23,phrase
+236,least square,23,phrase
+237,policy maker,23,phrase
+238,optimal monetary policy,23,phrase
+239,extensive margin,23,phrase
+240,upward mobility,23,phrase
+241,new york,22,phrase
+242,incentive compatibility,22,phrase
+243,differentiated product,22,phrase
+244,allocative efficiency,22,phrase
+245,laboratory experiment,22,phrase
+246,dynamic discrete choice,22,phrase
+247,forward guidance,21,phrase
+248,local labor market,21,phrase
+249,boom bust,21,phrase
+250,attitude toward,21,phrase
+251,prisoner dilemma,20,phrase
+252,employer employee,20,phrase
+253,high dimensional,20,phrase
+254,non parametric,20,phrase
+255,supply side,20,phrase
+256,long term care,20,phrase
+257,twentieth century,20,phrase
+258,head start,20,phrase
+259,pareto improving,20,phrase
+260,pecuniary externality,20,phrase
+261,synthetic control,20,phrase
+262,renewable energy,20,phrase
+263,strategic complementarity,19,phrase
+264,strategy proof,19,phrase
+265,well known,19,phrase
+266,status quo,19,phrase
+267,critical value,19,phrase
+268,criminal justice,19,phrase
+269,clean air,18,phrase
+270,long run impact,18,phrase
+271,socioeconomic status,18,phrase
+272,human capital accumulation,18,phrase
+273,optimal fiscal policy,18,phrase
+274,monte carlo,18,phrase
+275,functional form,18,phrase
+276,closed form,18,phrase
+277,worst case,18,phrase
+278,exogenous variation,18,phrase
+279,black white,18,phrase
+280,vector autoregression,18,phrase
+281,per capita,18,phrase
+282,insurance adverse selection,18,phrase
+283,single crossing,18,phrase
+284,parallel trend,18,phrase
+285,nineteenth century,17,phrase
+286,monetary policy shock,17,phrase
+287,last resort,17,phrase
+288,personalized pricing,17,phrase
+289,left digit,17,phrase
+290,quasi random,16,phrase
+291,widely used,16,phrase
+292,policy monetary policy,16,phrase
+293,dynamic mechanism design,16,phrase
+294,overlapping generation,16,phrase
+295,shadow banking,16,phrase
+296,nominal interest rate,16,phrase
+297,artificial intelligence,15,phrase
+298,life expectancy,15,phrase
+299,commonly used,15,phrase
+300,give rise,15,phrase
+301,low income country,15,phrase
+302,fiscal policy income,14,phrase
+303,health insurance market,14,phrase
+304,low income student,14,phrase
+305,taken together,14,phrase
+306,dynamic general equilibrium,14,phrase
+307,null hypothesis,14,phrase
+308,local labour market,14,phrase
+309,self esteem,14,phrase
+310,saharan africa,13,phrase
+311,sub saharan,13,phrase
+312,real interest rate,13,phrase
+313,monetary policy surprise,13,phrase
+314,subgame perfect,13,phrase
+315,policy fiscal policy,13,phrase
+316,interest rate parity,13,phrase
+317,real exchange rate,13,phrase
+318,deceased donor,12,phrase
+319,monetary policy fiscal,12,phrase
+320,monetary policy business,12,phrase
+321,policy business cycle,12,phrase
+322,business cycle monetary,12,phrase
+323,mobility united state,12,phrase
+324,long run risk,12,phrase
+325,monetary policy interest,11,phrase
+326,policy interest rate,11,phrase
+327,deferred acceptance,11,phrase
+328,commuting zone,11,phrase
+329,reserve interest rate,11,phrase
+330,cycle monetary policy,11,phrase
+331,price monetary policy,10,phrase
+332,monetary policy risk,10,phrase
+333,mechanism design information,10,phrase
+334,sierra leone,10,phrase
+335,labour market friction,10,phrase
+336,rate monetary policy,10,phrase
+337,vice versa,10,phrase
+338,health insurance adverse,10,phrase
+339,labor market policy,10,phrase
+340,monetary policy capital,10,phrase
+341,newly digitized,10,phrase
+342,property right land,10,phrase
+343,labor market return,10,phrase
