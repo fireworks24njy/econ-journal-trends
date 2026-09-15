@@ -1,0 +1,2 @@
+﻿Scope,Analysis,N,Number_of_fields,Pearson_chi2,Pearson_df,Pearson_p,Cramers_V,Minimum_expected_frequency,Multinomial_LR,Multinomial_df,Multinomial_p,Optimizer_converged,Maximum_absolute_gradient
+最终分类,十领域整体检验,1592,10,62.50233064183045,45,0.042995131704624795,0.08861180275882923,9.246231155778894,18.463998678425924,9,0.030156382156408357,True,5.5279705428290526e-05
