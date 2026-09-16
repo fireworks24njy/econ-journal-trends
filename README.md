@@ -17,7 +17,7 @@
 - 中英文期刊的领域构成、年度趋势与组间差异检验；
 - 英文 Top 5 期刊的领域内热词集中度与稳健性分析。
 
-完整研究设计、统计检验与结果讨论见最新报告：[Phase 5 - September 16.pdf](<phase 5 - September 16.pdf>)。
+完整研究设计、统计检验与结果讨论见最新报告：[Phase 5 - September 16.pdf](<Phase 5 - September 16.pdf>)。
 
 ## 数据概览
 
@@ -109,5 +109,5 @@ econ-journal-trends/
 ├── Phase 2 - August 04.pdf          # 第二阶段报告
 ├── Phase 3 - August 15.pdf          # 第三阶段报告
 ├── Phase 4 - August 31.pdf          # 第四阶段报告
-├── phase 5 - September 16.pdf       # 最新完整报告
+├── Phase 5 - September 16.pdf       # 最新完整报告
 └── README.md                        # 项目说明
