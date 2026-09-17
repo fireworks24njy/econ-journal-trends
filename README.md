@@ -85,19 +85,14 @@ Raw records
 ## Research-Field Classification
 
 Each paper is assigned to one of the ten economics fields defined in the research report:
+| No. | Field                   | No. | Field                  |
+| :-: | :---------------------- | :-: | :--------------------- |
+|  1  | Development Economics   |  6  | Labor Economics        |
+|  2  | Economic History        |  7  | Macroeconomics         |
+|  3  | Finance                 |  8  | Microeconomics         |
+|  4  | Industrial Organization |  9  | Public Finance         |
+|  5  | International Economics |  10 | Miscellaneous& Methods |
 
-| No.  | Field                   |
-| :--: | :---------------------- |
-|  1   | Development Economics   |
-|  2   | Economic History        |
-|  3   | Finance                 |
-|  4   | Industrial Organization |
-|  5   | International Economics |
-|  6   | Labor Economics         |
-|  7   | Macroeconomics          |
-|  8   | Microeconomics          |
-|  9   | Public Finance          |
-|  10  | Miscellaneous& Methods  |
 
 Three classification specifications are retained:
 
