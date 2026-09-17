@@ -1,5 +1,6 @@
 <div align="center">
 
+
 # econ-journal-trends
 
 ### Research Topics and Field Trends in Chinese and English Economics Journals, 2020–2025
@@ -31,10 +32,10 @@ The complete research design, statistical results, robustness checks, and discus
 
 ## Data
 
-| Corpus  | Source         | Journal coverage                                  |   Period  | Final sample |
-| :------ | :------------- | :------------------------------------------------ | :-------: | -----------: |
-| English | Web of Science | *AER*, *Econometrica*, *JPE*, *QJE*, and *ReStud* | 2020–2025 |    **2,467** |
-| Chinese | CNKI           | 《经济研究》《管理世界》《中国社会科学》中的经济学相关文章                     | 2020–2025 |    **1,592** |
+| Corpus  | Source         | Journal coverage                                           |  Period   | Final sample |
+| :------ | :------------- | :--------------------------------------------------------- | :-------: | -----------: |
+| English | Web of Science | *AER*, *Econometrica*, *JPE*, *QJE*, and *ReStud*          | 2020–2025 |    **2,467** |
+| Chinese | CNKI           | 《经济研究》《管理世界》《中国社会科学》中的经济学相关文章 | 2020–2025 |    **1,592** |
 
 For the English corpus, only research articles are retained; comments, book reviews, corrections, and duplicate records are excluded.
 
@@ -67,31 +68,36 @@ Raw records
 
 ## Methods at a Glance
 
-| Task                    | Main approach                                                          |
-| :---------------------- | :--------------------------------------------------------------------- |
-| Text construction       | Titles and keywords receive weight 2; abstracts receive weight 1       |
-| Phrase extraction       | Log-likelihood ratio for bigrams and trigrams, with \(G^2 \geq 10\)    |
-| Field classification    | TF-IDF weighting, vector space representation, and cosine similarity   |
-| Semantic benchmark      | Sentence-BERT embeddings for the English corpus                        |
-| Validation              | Stratified random sampling and independent blind human review          |
-| Trend estimation        | Multinomial and binary Logit models                                    |
-| Distributional tests    | Pearson chi-square tests and Cramér’s \(V\)                            |
-| Local pattern detection | Breakpoint scans and permutation tests                                 |
-| Multiple testing        | Benjamini–Hochberg correction                                          |
-| Sensitivity analysis    | Alternative classification rules and leave-one-year-out estimation     |
+| Task                    | Main approach                                                |
+| :---------------------- | :----------------------------------------------------------- |
+| Text construction       | Titles and keywords receive weight 2; abstracts receive weight 1 |
+| Phrase extraction       | Log-likelihood ratio for bigrams and trigrams, with $G^2 \ge 10$ |
+| Field classification    | TF-IDF weighting, vector space representation, and cosine similarity |
+| Semantic benchmark      | Sentence-BERT embeddings for the English corpus              |
+| Validation              | Stratified random sampling and independent blind human review |
+| Trend estimation        | Multinomial and binary Logit models                          |
+| Distributional tests    | Pearson chi-square tests and Cramér’s $V$                    |
+| Local pattern detection | Breakpoint scans and permutation tests                       |
+| Multiple testing        | Benjamini–Hochberg correction                                |
+| Sensitivity analysis    | Alternative classification rules and leave-one-year-out estimation |
 | Textual concentration   | Top-20 term share under multiple weighting and sampling specifications |
 
 ## Research-Field Classification
 
-Each paper is assigned to one of ten predefined economics fields:
+Each paper is assigned to one of the ten economics fields defined in the research report:
 
-| No. | Field                        | No. | Field                                |
-| :-: | :--------------------------- | :-: | :----------------------------------- |
-|  1  | Microeconomics               |  6  | Labour economics                     |
-|  2  | Macroeconomics               |  7  | Industrial organization              |
-|  3  | Econometrics and methodology |  8  | International economics              |
-|  4  | Finance                      |  9  | Development economics                |
-|  5  | Public economics             |  10 | Environmental and resource economics |
+| No.  | Field                   |
+| :--: | :---------------------- |
+|  1   | Development Economics   |
+|  2   | Economic History        |
+|  3   | Finance                 |
+|  4   | Industrial Organization |
+|  5   | International Economics |
+|  6   | Labor Economics         |
+|  7   | Macroeconomics          |
+|  8   | Microeconomics          |
+|  9   | Public Finance          |
+|  10  | Miscellaneous& Methods  |
 
 Three classification specifications are retained:
 
@@ -119,8 +125,8 @@ Sampling weights are used to recover accuracy estimates for the full sample. Eac
 
 The validation analysis further shows that:
 
-* fields with relatively distinctive terminology, including international economics, finance, and labour economics, achieve comparatively strong classification performance;
-* most disagreements occur near substantive boundaries, particularly between microeconomics, macroeconomics, and methodological research;
+* fields with relatively distinctive terminology, including International Economics, Finance, and Labor Economics, achieve comparatively strong classification performance;
+* most disagreements occur near substantive boundaries, particularly between Microeconomics, Macroeconomics, and Miscellaneous& Methods;
 * classification errors are not concentrated in particular years;
 * among reviewed low-confidence observations, approximately **68.4%** are interdisciplinary, broadly framed, or primarily methodological.
 
@@ -137,42 +143,42 @@ TF-IDF + VSM is retained as the primary classification method because it perform
 
 ### 1. High-Frequency Terms
 
-| Corpus           | Representative phrases                                                           | Representative words                               |
-| :--------------- | :------------------------------------------------------------------------------- | :------------------------------------------------- |
+| Corpus           | Representative phrases                                       | Representative words                               |
+| :--------------- | :----------------------------------------------------------- | :------------------------------------------------- |
 | English Top 5    | `monetary policy`, `labor market`, `long run`, `interest rate`, `business cycle` | `market`, `policy`, `information`, `firm`, `price` |
-| Chinese journals | 高质量发展、数字经济、地方政府、要素生产率、实体经济                                                       | 企业、市场、数字、风险、政府                                     |
+| Chinese journals | 高质量发展、数字经济、地方政府、要素生产率、实体经济         | 企业、市场、数字、风险、政府                       |
 
 ### 2. English Top 5 Trends
 
 * The overall field composition remains highly stable from 2020 to 2025.
 * Neither the multinomial Logit model nor the Pearson chi-square test identifies a significant systematic change in the full field distribution.
-* Labour economics shows a moderate upward tendency, with an annual odds ratio of **1.082**, but the result does not remain significant after correction across ten fields (\(q_{\mathrm{BH}}=0.2026\)).
-* Public economics reaches a temporary low in 2022, while industrial organization declines during 2023–2024. Neither pattern remains significant at the 5% level after multiple-testing correction, so both are treated as exploratory findings.
+* Labor Economics shows a moderate upward tendency, with an annual odds ratio of **1.082**, but the result does not remain significant after correction across ten fields ($q_{\mathrm{BH}} = 0.2026$).
+* Public Finance reaches a temporary low in 2022, while Industrial Organization declines during 2023–2024. Neither pattern remains significant at the 5% level after multiple-testing correction, so both are treated as exploratory findings.
 
 ### 3. Chinese-Journal Trends
 
-* Under the final classification, annual field composition differs statistically across years, but the effect size is small (\(\text{Cramér's }V=0.0886\)).
+* Under the final classification, annual field composition differs statistically across years, but the effect size is small (Cramér’s $V = 0.0886$).
 * The significance of the overall difference is sensitive to the classification specification.
-* International economics shows a relatively clear upward pattern, although the corrected stage-comparison result is slightly above the conventional 5% threshold (\(q_{\mathrm{BH}}=0.0594\)).
+* International Economics shows a relatively clear upward pattern, although the corrected stage-comparison result is slightly above the conventional 5% threshold ($q_{\mathrm{BH}} = 0.0594$).
 * Leave-one-year-out analysis indicates that this result is substantially influenced by the high share observed in 2025. It is therefore interpreted as a stage-specific upward signal around 2025 rather than an established long-run trend.
 
 ### 4. Chinese–English Comparison
 
 * The average field composition differs significantly between the two journal groups.
-* The English Top 5 sample places relatively greater emphasis on microeconomics.
-* Finance, industrial organization, and public economics account for larger shares of the Chinese journal sample.
+* The English Top 5 sample places relatively greater emphasis on Microeconomics.
+* Finance, Industrial Organization, and Public Finance account for larger shares of the Chinese journal sample.
 * Whether year is treated as a continuous or categorical variable, the analysis does not identify a significant difference in the overall temporal trajectories of the two groups from 2020 to 2025.
 
 ### 5. Textual Concentration
 
-| Comparison                                          | Main result                                                                          | Interpretation                                                 |
-| :-------------------------------------------------- | :----------------------------------------------------------------------------------- | :------------------------------------------------------------- |
-| Labour vs. development economics                    | Labour economics is higher by **3.96 percentage points**; \(q_{\mathrm{BH}}=0.0010\) | The most stable concentration difference across specifications |
-| Micro- vs. macroeconomics                           | **13.94% vs. 13.90%**                                                                | No substantive difference in overall concentration             |
-| Industrial organization vs. international economics | Industrial organization is more concentrated                                         | Sensitive to term granularity                                  |
-| Finance vs. public economics                        | Finance is more concentrated; \(q_{\mathrm{BH}}=0.0461\)                             | Also sensitive to term granularity                             |
+| Comparison                                          | Main result                                                  | Interpretation                                               |
+| :-------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| Labor Economics vs. Development Economics           | Labor Economics is higher by **3.96 percentage points**; $q_{\mathrm{BH}} = 0.0010$ | The most stable concentration difference across specifications |
+| Microeconomics vs. Macroeconomics                   | **13.94% vs. 13.90%**                                        | No substantive difference in overall concentration           |
+| Industrial Organization vs. International Economics | Industrial Organization is more concentrated                 | Sensitive to term granularity                                |
+| Finance vs. Public Finance                          | Finance is more concentrated; $q_{\mathrm{BH}} = 0.0461$     | Also sensitive to term granularity                           |
 
-The greater visibility of microeconomic terms in the full-sample frequency analysis does not imply that microeconomics has a higher within-field concentration than macroeconomics. It mainly reflects its larger publication base and the widespread use of terms such as information, equilibrium, and mechanism design across applied fields.
+The greater visibility of microeconomic terms in the full-sample frequency analysis does not imply that Microeconomics has a higher within-field concentration than Macroeconomics. It mainly reflects its larger publication base and the widespread use of terms such as information, equilibrium, and mechanism design across applied fields.
 
 ## Robustness Checks
 
