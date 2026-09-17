@@ -1,91 +1,220 @@
+<div align="center">
+
 # econ-journal-trends
 
-## 2020–2025 中英文经济学顶刊文献热词挖掘与研究领域分析
+### Research Topics and Field Trends in Chinese and English Economics Journals, 2020–2025
 
-> 基于 Web of Science 与中国知网文献数据的跨语言文本挖掘、领域分类和趋势比较。
+Cross-lingual text mining · Zero-shot field classification · Trend analysis · Textual concentration
 
-## 项目简介
+[Latest Report](Phase%205%20-%20September%2016.pdf) · [English Analysis](data_top5/) · [Chinese Analysis](data_CN/) · [Cross-language Comparison](data_Comparison/) · [Classification Validation](data_classification/)
 
-本项目选取 2020–2025 年英文经济学 Top 5 期刊与中文代表性期刊的学术文献，运用自然语言处理和统计分析方法，识别中英文经济学研究中的高频词汇、关键短语与领域结构，并比较不同领域及两组期刊的变化趋势。
+</div>
 
-主要内容包括：
+---
 
-- 中英文文献的数据清洗与标准化；
-- 基于对数似然比（LLR）的 2-gram 与 3-gram 短语挖掘；
-- 基于 TF-IDF 与向量空间模型（VSM）的零样本领域分类；
-- 基于分层随机抽样的分类准确性验证；
-- 中英文期刊的领域构成、年度趋势与组间差异检验；
-- 英文 Top 5 期刊的领域内热词集中度与稳健性分析。
+## About
 
-完整研究设计、统计检验与结果讨论见最新报告：[Phase 5 - September 16.pdf](<Phase 5 - September 16.pdf>)。
+This project examines research topics and field composition in leading Chinese and English economics journals from 2020 to 2025.
 
-## 数据概览
+Using bibliographic records from Web of Science and CNKI, it combines natural language processing with statistical analysis to:
 
-| 语种 | 数据来源 | 期刊范围 | 最终文献数 |
-| --- | --- | --- | ---: |
-| 英文 | Web of Science（WoS） | AER、JPE、QJE、*Econometrica*、*Review of Economic Studies* | **2,467** |
-| 中文 | 中国知网（CNKI） | 《经济研究》《管理世界》《中国社会科学》（经济学相关文章） | **1,592** |
+* extract high-frequency words and multiword expressions;
+* classify papers into ten economics fields;
+* validate classification accuracy through stratified sampling and independent blind review;
+* estimate annual changes in field composition;
+* compare Chinese and English journal samples;
+* measure textual concentration within the English economics Top 5.
 
-英文样本仅保留研究型 `Article`，并剔除评论、书评、勘误和重复记录。中文样本进一步剔除笔谈、书评、访谈等非研究性材料，并对《中国社会科学》中的候选论文进行人工鉴别。
+> **Language note:** This README is written in English for broader accessibility. The accompanying phase reports are written in Chinese.
 
-## 核心方法
+The complete research design, statistical results, robustness checks, and discussion are available in the [latest report](Phase%205%20-%20September%2016.pdf).
 
-1. **文本构建**：将标题和关键词分别重复计入一次，再与摘要合并，以增强核心字段在分类中的作用。
-2. **热词挖掘**：分别统计单词与复合短语，并利用 LLR 筛选具有稳定共现关系的 2-gram 和 3-gram。
-3. **领域分类**：使用 TF-IDF 与余弦相似度，将论文映射至十大经济学领域，并保留最终分类、原始分类和高置信分类三种口径。
-4. **分类验证**：从中英文样本中分别分层随机抽取 100 篇论文进行独立盲评，检验分类准确性及错误分布。
-5. **趋势分析**：综合采用多项 Logit、二项 Logit、Pearson 卡方检验、置换扫描、Bootstrap 和 Benjamini–Hochberg 多重检验校正。
-6. **集中度分析**：使用领域内 Top 20 词项份额衡量常用文本表达的集中程度，并通过论文等权、年度等权、文档出现计数和等样本量复抽样等口径检验稳健性。
+## Data
 
-项目同时使用 Sentence-BERT 对英文样本进行语义嵌入对照。综合考虑分类表现、可解释性与跨语言一致性，最终以 **TF-IDF + VSM** 作为主要分类方法。
+| Corpus  | Source         | Journal coverage                                  |   Period  | Final sample |
+| :------ | :------------- | :------------------------------------------------ | :-------: | -----------: |
+| English | Web of Science | *AER*, *Econometrica*, *JPE*, *QJE*, and *ReStud* | 2020–2025 |    **2,467** |
+| Chinese | CNKI           | 《经济研究》《管理世界》《中国社会科学》中的经济学相关文章                     | 2020–2025 |    **1,592** |
 
-## 分类准确性验证
+For the English corpus, only research articles are retained; comments, book reviews, corrections, and duplicate records are excluded.
 
-分类验证采用分层随机抽样，中英文各抽取 100 篇论文，并适当纳入低置信样本。独立盲评结果显示，中英文分类准确率总体约为 **76%–80%**，英文样本的 Top-2 准确率达到 **91.0%**。
+For the Chinese corpus, interviews, book reviews, discussion columns, and other non-research materials are excluded. Candidate papers from 《中国社会科学》 are additionally reviewed to identify economics-related research.
 
-验证结果未显示错误分类集中于某一特定年份或少数关键领域。国际经济学、金融学和劳动经济学等术语边界较清晰的领域表现较好；部分误差主要来自微观、宏观以及跨领域方法论文之间的边界重叠。
+## Research Workflow
 
-## 主要发现
+```text
+Raw records
+    │
+    ├── Data cleaning and standardization
+    │
+    ├── Weighted text construction
+    │       └── Title × 2 + Keywords × 2 + Abstract
+    │
+    ├── Word and phrase extraction
+    │       └── Unigrams + LLR-filtered bigrams and trigrams
+    │
+    ├── Research-field classification
+    │       └── TF-IDF + Vector Space Model
+    │
+    ├── Classification validation
+    │       └── Stratified sampling + independent blind review
+    │
+    └── Statistical analysis
+            ├── Annual field trends
+            ├── Chinese–English comparison
+            └── Within-field textual concentration
+```
 
-### 热词特征
+## Methods at a Glance
 
-- 英文 Top 5 期刊的高频短语包括 `monetary policy`、`labor market`、`long run`、`interest rate` 和 `business cycle`，高频单词则包括 `market`、`policy`、`information`、`firm` 和 `price`。
-- 中文期刊的高频短语包括“高质量发展”“数字经济”“地方政府”“要素生产率”和“实体经济”，高频单词主要包括“企业”“市场”“数字”“风险”和“政府”。
+| Task                    | Main approach                                                          |
+| :---------------------- | :--------------------------------------------------------------------- |
+| Text construction       | Titles and keywords receive weight 2; abstracts receive weight 1       |
+| Phrase extraction       | Log-likelihood ratio for bigrams and trigrams, with \(G^2 \geq 10\)    |
+| Field classification    | TF-IDF weighting, vector space representation, and cosine similarity   |
+| Semantic benchmark      | Sentence-BERT embeddings for the English corpus                        |
+| Validation              | Stratified random sampling and independent blind human review          |
+| Trend estimation        | Multinomial and binary Logit models                                    |
+| Distributional tests    | Pearson chi-square tests and Cramér’s \(V\)                            |
+| Local pattern detection | Breakpoint scans and permutation tests                                 |
+| Multiple testing        | Benjamini–Hochberg correction                                          |
+| Sensitivity analysis    | Alternative classification rules and leave-one-year-out estimation     |
+| Textual concentration   | Top-20 term share under multiple weighting and sampling specifications |
 
-### 英文领域趋势
+## Research-Field Classification
 
-- 2020–2025 年英文 Top 5 期刊的整体领域构成较为稳定，多项 Logit 与 Pearson 检验均未发现显著的系统性变化。
-- 劳动经济学呈现温和上升迹象，但未通过十领域 BH 多重检验校正。
-- 公共财政在 2022 年触及低谷后回升，产业组织在 2023–2024 年出现阶段性低谷；两项结果均未通过多重比较校正，因此仅作为探索性发现。
+Each paper is assigned to one of ten predefined economics fields:
 
-### 中文领域趋势
+| No. | Field                        | No. | Field                                |
+| :-: | :--------------------------- | :-: | :----------------------------------- |
+|  1  | Microeconomics               |  6  | Labour economics                     |
+|  2  | Macroeconomics               |  7  | Industrial organization              |
+|  3  | Econometrics and methodology |  8  | International economics              |
+|  4  | Finance                      |  9  | Development economics                |
+|  5  | Public economics             |  10 | Environmental and resource economics |
 
-- 中文期刊在最终分类口径下存在统计意义上的年度构成差异，但效应量较小，且整体显著性对分类口径较为敏感。
-- 国际经济学呈现较明确的上升方向，但阶段扫描在多重校正后未达到 5% 显著性水平，留一年分析也表明该趋势较大程度上受到 2025 年高占比的推动。
+Three classification specifications are retained:
 
-### 中英文比较
+* **Final classification:** the primary classification after applying confidence and adjustment rules;
+* **Raw classification:** the field with the highest original similarity score;
+* **High-confidence classification:** a restricted specification excluding low-confidence observations.
 
-- 中英文期刊的平均领域构成存在显著差异：英文 Top 5 相对侧重微观经济学，中文期刊中金融学、产业组织和公共财政的占比较高。
-- 无论将年份视为连续变量还是分类变量，均未发现两组期刊在 2020–2025 年的整体变化轨迹存在显著差异。
+The main results are compared across these specifications to assess their sensitivity to classification choices.
 
-### 热词集中度
+## Classification Validation
 
-- 劳动经济学相对于发展经济学具有较稳定的词项集中度优势。
-- 微观经济学与宏观经济学的总体词项集中度基本相同。
-- 产业组织与国际经济学、金融学与公共财政之间的差异对词语粒度较为敏感，不宜直接解释为研究问题集中程度的稳定差异。
-- 词项集中度反映常用文本表达的集中程度，只能作为研究问题集中程度的代理指标。
+From each language corpus, 100 papers are selected through stratified random sampling. The validation samples cover all candidate fields and deliberately allocate 20% of observations to low-confidence or boundary cases.
 
-## 项目结构
+Sampling weights are used to recover accuracy estimates for the full sample. Each selected paper is independently blind-reviewed using its title, keywords, and abstract.
+
+* **Top-1 accuracy** measures whether the model’s first-ranked field agrees with the independently blind-reviewed field.
+* **Top-2 accuracy** measures whether the blind-reviewed field appears among the model’s two highest-ranked fields.
+
+### Validation Results
+
+| Corpus           | Weighted Top-1 accuracy | Weighted Top-2 accuracy |
+| :--------------- | ----------------------: | ----------------------: |
+| English Top 5    |               **79.5%** |               **91.0%** |
+| Chinese journals |               **76.5%** |                       — |
+
+The validation analysis further shows that:
+
+* fields with relatively distinctive terminology, including international economics, finance, and labour economics, achieve comparatively strong classification performance;
+* most disagreements occur near substantive boundaries, particularly between microeconomics, macroeconomics, and methodological research;
+* classification errors are not concentrated in particular years;
+* among reviewed low-confidence observations, approximately **68.4%** are interdisciplinary, broadly framed, or primarily methodological.
+
+### Comparison with Sentence-BERT
+
+| Method           | English weighted agreement |
+| :--------------- | -------------------------: |
+| **TF-IDF + VSM** |                  **79.5%** |
+| Sentence-BERT    |                      61.6% |
+
+TF-IDF + VSM is retained as the primary classification method because it performs better in the validation sample while preserving interpretability and a consistent framework across Chinese and English texts.
+
+## Main Findings
+
+### 1. High-Frequency Terms
+
+| Corpus           | Representative phrases                                                           | Representative words                               |
+| :--------------- | :------------------------------------------------------------------------------- | :------------------------------------------------- |
+| English Top 5    | `monetary policy`, `labor market`, `long run`, `interest rate`, `business cycle` | `market`, `policy`, `information`, `firm`, `price` |
+| Chinese journals | 高质量发展、数字经济、地方政府、要素生产率、实体经济                                                       | 企业、市场、数字、风险、政府                                     |
+
+### 2. English Top 5 Trends
+
+* The overall field composition remains highly stable from 2020 to 2025.
+* Neither the multinomial Logit model nor the Pearson chi-square test identifies a significant systematic change in the full field distribution.
+* Labour economics shows a moderate upward tendency, with an annual odds ratio of **1.082**, but the result does not remain significant after correction across ten fields (\(q_{\mathrm{BH}}=0.2026\)).
+* Public economics reaches a temporary low in 2022, while industrial organization declines during 2023–2024. Neither pattern remains significant at the 5% level after multiple-testing correction, so both are treated as exploratory findings.
+
+### 3. Chinese-Journal Trends
+
+* Under the final classification, annual field composition differs statistically across years, but the effect size is small (\(\text{Cramér's }V=0.0886\)).
+* The significance of the overall difference is sensitive to the classification specification.
+* International economics shows a relatively clear upward pattern, although the corrected stage-comparison result is slightly above the conventional 5% threshold (\(q_{\mathrm{BH}}=0.0594\)).
+* Leave-one-year-out analysis indicates that this result is substantially influenced by the high share observed in 2025. It is therefore interpreted as a stage-specific upward signal around 2025 rather than an established long-run trend.
+
+### 4. Chinese–English Comparison
+
+* The average field composition differs significantly between the two journal groups.
+* The English Top 5 sample places relatively greater emphasis on microeconomics.
+* Finance, industrial organization, and public economics account for larger shares of the Chinese journal sample.
+* Whether year is treated as a continuous or categorical variable, the analysis does not identify a significant difference in the overall temporal trajectories of the two groups from 2020 to 2025.
+
+### 5. Textual Concentration
+
+| Comparison                                          | Main result                                                                          | Interpretation                                                 |
+| :-------------------------------------------------- | :----------------------------------------------------------------------------------- | :------------------------------------------------------------- |
+| Labour vs. development economics                    | Labour economics is higher by **3.96 percentage points**; \(q_{\mathrm{BH}}=0.0010\) | The most stable concentration difference across specifications |
+| Micro- vs. macroeconomics                           | **13.94% vs. 13.90%**                                                                | No substantive difference in overall concentration             |
+| Industrial organization vs. international economics | Industrial organization is more concentrated                                         | Sensitive to term granularity                                  |
+| Finance vs. public economics                        | Finance is more concentrated; \(q_{\mathrm{BH}}=0.0461\)                             | Also sensitive to term granularity                             |
+
+The greater visibility of microeconomic terms in the full-sample frequency analysis does not imply that microeconomics has a higher within-field concentration than macroeconomics. It mainly reflects its larger publication base and the widespread use of terms such as information, equilibrium, and mechanism design across applied fields.
+
+## Robustness Checks
+
+The main analyses are evaluated under several alternative specifications.
+
+### Classification robustness
+
+* final classification;
+* raw highest-similarity classification;
+* high-confidence classification.
+
+### Trend robustness
+
+* year as a continuous variable;
+* year as a categorical variable;
+* breakpoint scans;
+* permutation tests;
+* leave-one-year-out estimation;
+* Benjamini–Hochberg correction.
+
+### Concentration robustness
+
+* pooled term-frequency weighting;
+* equal weighting across papers;
+* equal weighting across years;
+* document-occurrence counts;
+* bigrams only;
+* equal-sample-size bootstrap resampling.
+
+These checks are used to distinguish stable results from findings that depend on a particular classification rule, time specification, or term-counting method.
+
+## Repository Structure
 
 ```text
 econ-journal-trends/
-├── data_CN/                         # 中文数据、分类代码与趋势分析结果
+├── data_CN/                         # Chinese data and field-trend analysis
 │   ├── chinese_field_analysis_output/
 │   ├── code01_Word_CN.py
 │   ├── code02_Category_CN.py
 │   └── code03_chinese_journal_field_analysis.py
 │
-├── data_top5/                       # 英文 Top 5 数据、代码与分析结果
+├── data_top5/                       # English Top 5 data and analysis
 │   ├── code01_Words_top5.py
 │   ├── code02_Category_top5.py
 │   ├── code03_Category_Sentence-BERT.py
@@ -94,20 +223,83 @@ econ-journal-trends/
 │   ├── trend_analysis_outputs.zip
 │   └── english_all_field_concentration_output.zip
 │
-├── data_Comparison/                 # 中英文领域构成与趋势比较
+├── data_Comparison/                # Chinese–English comparison
 │   ├── cn_en_group_comparison_analysis.py
 │   └── cn_en_group_comparison_output/
 │
-├── data_classification/             # 中英文分类准确性验证
+├── data_classification/            # Classification validation
 │   ├── bilingual_classification_validation.py
 │   ├── EN_Validation.csv
 │   └── CN_Validation.csv
 │
-├── figure/                          # 报告使用的可视化结果
-├── (Galofré-Vilà, 2026).pdf         # 参考文献
-├── Phase 1 - July 22.pdf            # 第一阶段报告
-├── Phase 2 - August 04.pdf          # 第二阶段报告
-├── Phase 3 - August 15.pdf          # 第三阶段报告
-├── Phase 4 - August 31.pdf          # 第四阶段报告
-├── Phase 5 - September 16.pdf       # 最新完整报告
-└── README.md                        # 项目说明
+├── figure/                         # Figures used in the reports
+├── (Galofré-Vilà, 2026).pdf         # Reference paper
+├── Phase 1 - July 22.pdf
+├── Phase 2 - August 04.pdf
+├── Phase 3 - August 15.pdf
+├── Phase 4 - August 31.pdf
+├── Phase 5 - September 16.pdf       # Latest full report
+└── README.md
+```
+
+## Reproduction Guide
+
+The scripts follow the order of the research workflow:
+
+1. Run the word and phrase extraction scripts:
+
+   * `data_CN/code01_Word_CN.py`
+   * `data_top5/code01_Words_top5.py`
+
+2. Generate the field classifications:
+
+   * `data_CN/code02_Category_CN.py`
+   * `data_top5/code02_Category_top5.py`
+
+3. Run the Sentence-BERT benchmark:
+
+   * `data_top5/code03_Category_Sentence-BERT.py`
+
+4. Validate the Chinese and English classifications:
+
+   * `data_classification/bilingual_classification_validation.py`
+
+5. Estimate field trends:
+
+   * `data_CN/code03_chinese_journal_field_analysis.py`
+   * `data_top5/code04_trend_analysis.py`
+
+6. Compare the Chinese and English journal samples:
+
+   * `data_Comparison/cn_en_group_comparison_analysis.py`
+
+7. Analyze within-field textual concentration:
+
+   * `data_top5/code05_english_all_field_concentration_analysis.py`
+
+Some scripts depend on intermediate datasets generated in earlier stages. Local file paths may need to be adjusted before execution.
+
+## Scope and Interpretation
+
+This project should be interpreted within three boundaries:
+
+1. **Classification uncertainty.**
+   The ten-field structure provides a consistent basis for comparison, but some papers genuinely span multiple fields. Top-1 assignments necessarily simplify these interdisciplinary cases. The Top-2 results, low-confidence labels, and alternative classification specifications are therefore reported alongside the main classification.
+
+2. **Sample scope.**
+   The results describe the selected English Top 5 and Chinese journal samples. They should not be treated as estimates of the field composition of all economics research published in English or Chinese.
+
+3. **Meaning of textual concentration.**
+   The concentration indicator is constructed from words and multiword expressions. It measures how strongly a field’s textual usage is concentrated among its most frequent terms, not whether the field’s underlying research questions are inherently narrow or homogeneous. Synonyms, general-purpose terms, and alternative phrasing may also affect the measured concentration.
+
+## Reports
+
+| Stage | Report                                                       | Main focus                                       |
+| :---: | :----------------------------------------------------------- | :----------------------------------------------- |
+|   1   | [Phase 1 – July 22](Phase%201%20-%20July%2022.pdf)           | Initial data processing and exploratory analysis |
+|   2   | [Phase 2 – August 04](Phase%202%20-%20August%2004.pdf)       | Text extraction and classification development   |
+|   3   | [Phase 3 – August 15](Phase%203%20-%20August%2015.pdf)       | Field classification and trend analysis          |
+|   4   | [Phase 4 – August 31](Phase%204%20-%20August%2031.pdf)       | Extended statistical tests and comparisons       |
+|   5   | [Phase 5 – September 16](Phase%205%20-%20September%2016.pdf) | Current complete report                          |
+
+> The phase reports are written in Chinese. Phase 5 is the latest and most complete version of the study.
